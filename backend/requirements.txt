@@ -1,0 +1,10 @@
+Flask==3.0.0
+Flask-CORS==4.0.0
+# Use psycopg2-binary if possible (faster), otherwise use pg8000 (pure Python, no compilation)
+# For Windows without C++ Build Tools, comment out psycopg2-binary and uncomment pg8000
+psycopg2-binary>=2.9.0
+# pg8000>=1.31.0  # Uncomment this if psycopg2-binary fails to install
+bcrypt==4.1.1
+python-dotenv==1.0.0
+PyJWT==2.8.0
+

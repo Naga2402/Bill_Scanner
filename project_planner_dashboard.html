@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Scanner - Project Planner Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .phase-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .phase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .task-item {
+            transition: background-color 0.2s;
+        }
+        .task-item:hover {
+            background-color: rgba(53, 158, 255, 0.05);
+        }
+        .priority-stars {
+            color: #FFB800;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">📱 Bill Scanner - Project Planner</h1>
+            <p class="text-gray-600">Track development progress across all 6 phases</p>
+        </header>
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="text-sm text-gray-500 mb-1">Overall Progress</div>
+                <div class="text-3xl font-bold text-blue-600" id="overall-progress">0%</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="text-sm text-gray-500 mb-1">Completed Tasks</div>
+                <div class="text-3xl font-bold text-green-600" id="completed-tasks">0</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="text-sm text-gray-500 mb-1">Total Tasks</div>
+                <div class="text-3xl font-bold text-gray-700" id="total-tasks">0</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="text-sm text-gray-500 mb-1">Current Phase</div>
+                <div class="text-3xl font-bold text-purple-600" id="current-phase">-</div>
+            </div>
+        </div>
+
+        <!-- Phase Sections -->
+        <div id="phases-container" class="space-y-6">
+            <!-- Phases will be dynamically generated -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-8 flex gap-4">
+            <button onclick="exportProgress()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                📥 Export Progress
+            </button>
+            <button onclick="resetProgress()" class="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                🔄 Reset All
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Project data structure
+        const projectData = {
+            startDate: "2025-10-21",
+            phases: [
+                {
+                    id: "phase1",
+                    name: "PHASE 1 — MVP",
+                    emoji: "🚀",
+                    description: "Build a fast, private, beautiful bill scanner",
+                    weeks: "Weeks 1-4",
+                    status: "in-progress",
+                    tasks: [
+                        {
+                            id: "p1t1",
+                            title: "📸 Camera + Auto-Crop Module",
+                            description: "Implement edge detection, brightness enhancement, crop adjust",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p1t2",
+                            title: "🔤 OCR Integration (Tesseract / ML Kit)",
+                            description: "Extract text from images for amount, date, and vendor",
+                            owner: "🧠 AI + Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p1t3",
+                            title: "💾 Local Storage (SQLite)",
+                            description: "Store bill metadata and image paths",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p1t4",
+                            title: "🔐 Biometric App Lock",
+                            description: "FaceID / Fingerprint app unlock",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p1t5",
+                            title: "🖼️ Figma UI Implementation",
+                            description: "Apply color scheme, dark mode, transitions",
+                            owner: "🎨 UI",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: true
+                        },
+                        {
+                            id: "p1t7",
+                            title: "🌐 Backend API Server (Python Flask)",
+                            description: "REST API for PostgreSQL database access, CORS enabled for web",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: true
+                        },
+                        {
+                            id: "p1t8",
+                            title: "🗄️ PostgreSQL Database Setup",
+                            description: "Database schema, tables, indexes, sample data, connection config",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: true
+                        },
+                        {
+                            id: "p1t9",
+                            title: "🔌 Database Service Architecture",
+                            description: "Platform-aware service factory (Web API vs Direct PostgreSQL)",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: true
+                        },
+                        {
+                            id: "p1t10",
+                            title: "🔧 Model Data Parsing Fix",
+                            description: "Fixed date string parsing in User, Bill, Category models",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: true
+                        },
+                        {
+                            id: "p1t6",
+                            title: "🛰️ Offline Mode Support",
+                            description: "App works without internet, syncs later",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐⭐",
+                            completed: false
+                        }
+                    ]
+                },
+                {
+                    id: "phase2",
+                    name: "PHASE 2 — SMART FEATURES",
+                    emoji: "⚙️",
+                    description: "Make the app feel intelligent & useful daily",
+                    weeks: "Weeks 5-8",
+                    status: "not-started",
+                    tasks: [
+                        {
+                            id: "p2t1",
+                            title: "🧠 Rule-Based Categorization",
+                            description: "Categorize bills via keywords (\"electricity,\" \"groceries\")",
+                            owner: "🧠 AI",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p2t2",
+                            title: "📊 Expense Summary Screen",
+                            description: "Pie/Bar chart by category and vendor",
+                            owner: "🎨 UI + Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p2t3",
+                            title: "🔔 Smart Notifications",
+                            description: "Due date alerts, spend summaries",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p2t4",
+                            title: "☁️ Cloud Sync (Firebase)",
+                            description: "Upload bills + metadata to cloud",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p2t5",
+                            title: "🔎 Search & Filter Feature",
+                            description: "Search by date, vendor, or category",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p2t6",
+                            title: "📤 Export (PDF/CSV)",
+                            description: "Export bills or reports",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        }
+                    ]
+                },
+                {
+                    id: "phase3",
+                    name: "PHASE 3 — AI & INSIGHTS",
+                    emoji: "🧠",
+                    description: "Make it a smart financial companion",
+                    weeks: "Weeks 9-12",
+                    status: "not-started",
+                    tasks: [
+                        {
+                            id: "p3t1",
+                            title: "♻️ Recurring Vendor Detection",
+                            description: "Identify Netflix, Airtel, etc.",
+                            owner: "🧠 AI",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p3t2",
+                            title: "🔧 Warranty Reminder System",
+                            description: "Detect purchase date and expiry",
+                            owner: "🧠 AI + Dev",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p3t3",
+                            title: "💬 AI Chat Assistant",
+                            description: "Query bills: \"Show food bills from March.\"",
+                            owner: "🧠 AI + Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p3t4",
+                            title: "📈 Insights Dashboard",
+                            description: "Trend lines, category comparisons",
+                            owner: "🎨 UI + Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        }
+                    ]
+                },
+                {
+                    id: "phase4",
+                    name: "PHASE 4 — TRUST & MONETIZATION",
+                    emoji: "🔒",
+                    description: "Build loyalty, privacy trust, and revenue model",
+                    weeks: "Weeks 13-16",
+                    status: "not-started",
+                    tasks: [
+                        {
+                            id: "p4t1",
+                            title: "🔒 End-to-End Encryption",
+                            description: "Secure cloud sync data",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p4t2",
+                            title: "👁️ Privacy Dashboard",
+                            description: "Transparency on data stored",
+                            owner: "🎨 UI",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p4t3",
+                            title: "💳 In-App Purchases (Stripe / Razorpay)",
+                            description: "Subscription tiers",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p4t4",
+                            title: "🎁 Referral Rewards",
+                            description: "Invite friends → earn free months",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐",
+                            completed: false
+                        }
+                    ]
+                },
+                {
+                    id: "phase5",
+                    name: "PHASE 5 — GROWTH & RETENTION",
+                    emoji: "🌍",
+                    description: "Drive virality, retention, and integrations",
+                    weeks: "Weeks 17-24",
+                    status: "not-started",
+                    tasks: [
+                        {
+                            id: "p5t1",
+                            title: "📧 Email Bill Import (Gmail API)",
+                            description: "Fetch PDF bills automatically",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p5t2",
+                            title: "📱 SMS Parsing",
+                            description: "Detect payment alerts and link them",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p5t3",
+                            title: "🏆 Gamification (Streaks / Badges)",
+                            description: "Encourage daily scans",
+                            owner: "🎨 UI + Dev",
+                            priority: "⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p5t4",
+                            title: "🌐 Multi-Language Support",
+                            description: "English, Hindi, Tamil, Marathi",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p5t5",
+                            title: "📤 In-App Sharing",
+                            description: "Share summary links or bills",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p5t6",
+                            title: "📣 Push Campaigns",
+                            description: "\"Your spending dropped 10% 🎉.\"",
+                            owner: "🧾 PM",
+                            priority: "⭐",
+                            completed: false
+                        }
+                    ]
+                },
+                {
+                    id: "phase6",
+                    name: "PHASE 6 — ECOSYSTEM EXPANSION",
+                    emoji: "💎",
+                    description: "Build the brand ecosystem and B2B opportunities",
+                    weeks: "Post 6 Months",
+                    status: "not-started",
+                    tasks: [
+                        {
+                            id: "p6t1",
+                            title: "🏪 Business Mode",
+                            description: "For small vendors to store invoices",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p6t2",
+                            title: "💻 Web Dashboard",
+                            description: "Manage bills online",
+                            owner: "👨‍💻 Dev + UI",
+                            priority: "⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p6t3",
+                            title: "🧩 Bill Scanner API (B2B)",
+                            description: "External API for OCR + Categorization",
+                            owner: "🧠 AI",
+                            priority: "⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p6t4",
+                            title: "👨‍👩‍👧 Family Sharing Mode",
+                            description: "Shared folders & budgets",
+                            owner: "👨‍💻 Dev",
+                            priority: "⭐",
+                            completed: false
+                        },
+                        {
+                            id: "p6t5",
+                            title: "📑 Tax Mode Export",
+                            description: "Generate deductible expense reports",
+                            owner: "🧾 PM",
+                            priority: "⭐",
+                            completed: false
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Load saved progress from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('billScannerProgress');
+            if (saved) {
+                const savedData = JSON.parse(saved);
+                // Merge saved progress with current structure
+                savedData.phases.forEach(savedPhase => {
+                    const phase = projectData.phases.find(p => p.id === savedPhase.id);
+                    if (phase) {
+                        phase.status = savedPhase.status;
+                        savedPhase.tasks.forEach(savedTask => {
+                            const task = phase.tasks.find(t => t.id === savedTask.id);
+                            if (task) {
+                                task.completed = savedTask.completed;
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
+        // Save progress to localStorage
+        function saveProgress() {
+            localStorage.setItem('billScannerProgress', JSON.stringify(projectData));
+            updateStatistics();
+        }
+
+        // Toggle task completion
+        function toggleTask(phaseId, taskId) {
+            const phase = projectData.phases.find(p => p.id === phaseId);
+            if (phase) {
+                const task = phase.tasks.find(t => t.id === taskId);
+                if (task) {
+                    task.completed = !task.completed;
+                    updatePhaseStatus(phase);
+                    saveProgress();
+                    renderPhases();
+                }
+            }
+        }
+
+        // Update phase status based on task completion
+        function updatePhaseStatus(phase) {
+            const completed = phase.tasks.filter(t => t.completed).length;
+            const total = phase.tasks.length;
+            
+            if (completed === 0) {
+                phase.status = 'not-started';
+            } else if (completed === total) {
+                phase.status = 'completed';
+            } else {
+                phase.status = 'in-progress';
+            }
+        }
+
+        // Update statistics
+        function updateStatistics() {
+            let totalTasks = 0;
+            let completedTasks = 0;
+            let currentPhase = '-';
+
+            projectData.phases.forEach(phase => {
+                totalTasks += phase.tasks.length;
+                completedTasks += phase.tasks.filter(t => t.completed).length;
+                if (phase.status === 'in-progress' && currentPhase === '-') {
+                    currentPhase = phase.name.split('—')[0].trim();
+                }
+            });
+
+            const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+            document.getElementById('overall-progress').textContent = progress + '%';
+            document.getElementById('completed-tasks').textContent = completedTasks;
+            document.getElementById('total-tasks').textContent = totalTasks;
+            document.getElementById('current-phase').textContent = currentPhase;
+        }
+
+        // Render phases
+        function renderPhases() {
+            const container = document.getElementById('phases-container');
+            container.innerHTML = '';
+
+            projectData.phases.forEach(phase => {
+                const completed = phase.tasks.filter(t => t.completed).length;
+                const total = phase.tasks.length;
+                const progress = total > 0 ? (completed / total) * 100 : 0;
+
+                const statusColors = {
+                    'not-started': 'bg-gray-200 text-gray-700',
+                    'in-progress': 'bg-yellow-200 text-yellow-800',
+                    'completed': 'bg-green-200 text-green-800'
+                };
+
+                const phaseCard = document.createElement('div');
+                phaseCard.className = 'phase-card bg-white rounded-lg shadow p-6';
+                phaseCard.innerHTML = `
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900">
+                                ${phase.emoji} ${phase.name}
+                            </h2>
+                            <p class="text-gray-600 mt-1">${phase.description}</p>
+                            <p class="text-sm text-gray-500 mt-1">${phase.weeks}</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-sm font-semibold ${statusColors[phase.status]}">
+                            ${phase.status.replace('-', ' ').toUpperCase()}
+                        </span>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-600">Progress</span>
+                            <span class="font-semibold">${completed}/${total} tasks</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: ${progress}%"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        ${phase.tasks.map(task => `
+                            <div class="task-item flex items-start gap-3 p-3 rounded-lg border ${task.completed ? 'bg-green-50 border-green-200' : 'border-gray-200'}" onclick="toggleTask('${phase.id}', '${task.id}')">
+                                <input type="checkbox" ${task.completed ? 'checked' : ''} class="mt-1" onchange="toggleTask('${phase.id}', '${task.id}')">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <h3 class="font-semibold ${task.completed ? 'line-through text-gray-500' : 'text-gray-900'}">${task.title}</h3>
+                                        <span class="priority-stars text-xs">${task.priority}</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1">${task.description}</p>
+                                    <p class="text-xs text-gray-500 mt-1">${task.owner}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(phaseCard);
+            });
+
+            updateStatistics();
+        }
+
+        // Export progress
+        function exportProgress() {
+            const data = {
+                ...projectData,
+                exportDate: new Date().toISOString(),
+                statistics: {
+                    overallProgress: document.getElementById('overall-progress').textContent,
+                    completedTasks: document.getElementById('completed-tasks').textContent,
+                    totalTasks: document.getElementById('total-tasks').textContent,
+                    currentPhase: document.getElementById('current-phase').textContent
+                }
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `bill-scanner-progress-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Reset progress
+        function resetProgress() {
+            if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+                projectData.phases.forEach(phase => {
+                    phase.status = 'not-started';
+                    phase.tasks.forEach(task => {
+                        task.completed = false;
+                    });
+                });
+                localStorage.removeItem('billScannerProgress');
+                renderPhases();
+            }
+        }
+
+        // Initialize
+        loadProgress();
+        renderPhases();
+    </script>
+</body>
+</html>
+

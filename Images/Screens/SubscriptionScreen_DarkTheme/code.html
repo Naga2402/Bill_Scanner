@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Upgrade Plan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#359EFF", "background-light": "#f5f7f8", "background-dark": "#0f1923"}, fontFamily: {display: "Manrope"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 20
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden text-[#111518] dark:text-gray-200">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#111518] dark:text-gray-200">close</span>
+</div>
+<h2 class="text-[#111518] dark:text-gray-200 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Upgrade</h2>
+<div class="w-10"></div> <!-- Spacer -->
+</div>
+<!-- Headline & Body Text -->
+<h1 class="text-[#111518] dark:text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-2 pt-6">Unlock Your Full Potential</h1>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal pb-3 px-4 text-center">Upgrade to Pro to get access to exclusive features.</p>
+<!-- Segmented Buttons for Pricing Toggle -->
+<div class="flex px-4 py-3">
+<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-gray-200 dark:bg-background-dark p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-gray-500 dark:text-gray-400 has-[:checked]:bg-white has-[:checked]:dark:bg-gray-700 has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.1)] has-[:checked]:text-[#111518] has-[:checked]:dark:text-white text-sm font-medium leading-normal transition-all duration-200">
+<span class="truncate">Monthly</span>
+<input class="invisible w-0" name="pricing-toggle" type="radio" value="Monthly"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-gray-500 dark:text-gray-400 has-[:checked]:bg-white has-[:checked]:dark:bg-gray-700 has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.1)] has-[:checked]:text-[#111518] has-[:checked]:dark:text-white text-sm font-medium leading-normal transition-all duration-200">
+<span class="truncate">Annual (Save 20%)</span>
+<input checked="" class="invisible w-0" name="pricing-toggle" type="radio" value="Annual (Save 20%)"/>
+</label>
+</div>
+</div>
+<!-- Pricing Cards -->
+<div class="grid grid-cols-2 gap-3 px-4 py-3">
+<!-- Free Card -->
+<div class="flex flex-col gap-4 rounded-xl border border-solid border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#111518] dark:text-white text-base font-bold leading-tight">Free</h1>
+<p class="flex items-baseline gap-1 text-[#111518] dark:text-white">
+<span class="text-4xl font-black leading-tight tracking-[-0.033em]">$0</span>
+</p>
+</div>
+<div class="flex flex-col gap-3 pt-2">
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Basic Expense Tracking
+                    </div>
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Limited Bill Categories
+                    </div>
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Manual Backup
+                    </div>
+</div>
+</div>
+<!-- Pro Card -->
+<div class="relative flex flex-col gap-4 rounded-xl border-2 border-solid border-primary bg-white dark:bg-gray-800 p-4 transform scale-105">
+<p class="absolute -top-3.5 left-1/2 -translate-x-1/2 text-white text-xs font-medium leading-normal tracking-[0.015em] rounded-full bg-primary px-3 py-1 text-center">Most Popular</p>
+<div class="flex flex-col gap-1">
+<h1 class="text-[#111518] dark:text-white text-base font-bold leading-tight">Pro</h1>
+<p class="flex items-baseline gap-1 text-[#111518] dark:text-white">
+<span class="text-4xl font-black leading-tight tracking-[-0.033em]">$7.99</span>
+<span class="text-base font-bold leading-tight">/mo</span>
+</p>
+</div>
+<div class="flex flex-col gap-3 pt-2">
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Unlimited Cloud Backup
+                    </div>
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        AI-Powered Categories
+                    </div>
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Advanced Analytics
+                    </div>
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Custom Categories
+                    </div>
+<div class="text-[13px] font-normal leading-normal flex gap-2.5 items-center text-[#111518] dark:text-gray-200">
+<span class="material-symbols-outlined text-base text-primary">check</span>
+                        Priority Support
+                    </div>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="flex-grow"></div>
+<!-- Bottom CTA section -->
+<div class="bg-white dark:bg-gray-800/50 backdrop-blur-sm p-4 pt-3 border-t border-gray-200 dark:border-gray-700 sticky bottom-0">
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30">
+<span class="truncate">Upgrade Now &amp; Save 20%</span>
+</button>
+<p class="text-gray-500 dark:text-gray-400 text-xs text-center pt-3">
+<a class="underline" href="#">Terms of Service</a> &amp; <a class="underline" href="#">Privacy Policy</a>
+</p>
+</div>
+</div>
+</body></html>

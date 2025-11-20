@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expense Summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#359EFF",
+            "sky-blue": "#87CEEB",
+            "muted-blue-grey": "#64748B",
+            "background-light": "#f5f7f8",
+            "background-dark": "#0f1923"
+          },
+          fontFamily: {
+            display: "Manrope"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="flex flex-col min-h-screen w-full absolute top-0 left-0">
+<header class="sticky top-0 z-10 flex h-16 items-center border-b border-slate-200 dark:border-white/10 bg-background-light dark:bg-background-dark px-4">
+<button class="flex size-10 shrink-0 items-center justify-center text-slate-700 dark:text-white">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold text-slate-900 dark:text-white">Expense Summary</h1>
+<div class="size-10 shrink-0"></div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 pb-24">
+<div class="mb-6 rounded-xl bg-white p-6 shadow-sm dark:bg-slate-800">
+<p class="text-sm font-medium text-muted-blue-grey dark:text-slate-400">Total Expenses</p>
+<p class="mt-1 text-4xl font-bold text-slate-900 dark:text-white">$1,234.56</p>
+</div>
+<div class="mb-6 flex space-x-2">
+<button class="flex-1 rounded-lg bg-[#87CEEB]/30 py-2.5 px-4 text-sm font-semibold text-[#007AFF] dark:bg-[#87CEEB]/20 dark:text-sky-blue">Month</button>
+<button class="flex-1 rounded-lg bg-slate-200 py-2.5 px-4 text-sm font-medium text-muted-blue-grey dark:bg-slate-700 dark:text-slate-300">Year</button>
+</div>
+<h2 class="mb-4 text-base font-semibold text-slate-800 dark:text-slate-200">Category Breakdown</h2>
+<div class="space-y-3">
+<div class="flex items-center rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#87CEEB]/20">
+<span class="material-symbols-outlined text-[#007AFF] dark:text-sky-blue">restaurant</span>
+</div>
+<div class="ml-4 flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-100">Food &amp; Drink</p>
+<p class="text-sm text-muted-blue-grey dark:text-slate-400">12 transactions</p>
+</div>
+<p class="font-bold text-slate-900 dark:text-white">$450.75</p>
+</div>
+</div>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 z-10 border-t border-slate-200 bg-background-light dark:border-white/10 dark:bg-background-dark">
+<nav class="flex h-20 items-center justify-around">
+<a class="flex flex-col items-center gap-1 text-muted-blue-grey dark:text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-xs">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#007AFF] dark:text-sky-blue" href="#">
+<span class="material-symbols-outlined text-2xl">summarize</span>
+<span class="text-xs font-bold">Summary</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-muted-blue-grey dark:text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span class="text-xs">Add Bill</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-muted-blue-grey dark:text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-xs">Settings</span>
+</a>
+</nav>
+</footer>
+</div>
+<div class="absolute top-0 left-0 z-20 flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
+<header class="sticky top-0 z-10 flex h-16 items-center border-b border-slate-200 dark:border-white/10 bg-background-light dark:bg-background-dark px-4">
+<button class="flex size-10 shrink-0 items-center justify-center text-slate-700 dark:text-white">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold text-slate-900 dark:text-white">Groceries</h1>
+<div class="size-10 shrink-0"></div>
+</header>
+<main class="flex-1 overflow-y-auto p-4 pb-24">
+<div class="mb-6 rounded-xl bg-white p-6 shadow-sm dark:bg-slate-800">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-muted-blue-grey dark:text-slate-400">Total Spent</p>
+<p class="mt-1 text-4xl font-bold text-slate-900 dark:text-white">$312.50</p>
+</div>
+<div class="flex size-12 items-center justify-center rounded-full bg-[#87CEEB]/20">
+<span class="material-symbols-outlined text-3xl text-[#007AFF] dark:text-sky-blue">shopping_cart</span>
+</div>
+</div>
+<p class="mt-4 text-sm text-muted-blue-grey dark:text-slate-400">8 transactions this month</p>
+</div>
+<h2 class="mb-4 text-base font-semibold text-slate-800 dark:text-slate-200">Transactions</h2>
+<div class="space-y-3">
+<div class="flex items-center rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-100">Local Market</p>
+<p class="text-sm text-muted-blue-grey dark:text-slate-400">July 15, 2024</p>
+</div>
+<p class="font-bold text-slate-900 dark:text-white">$75.20</p>
+</div>
+<div class="flex items-center rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-100">SuperMart</p>
+<p class="text-sm text-muted-blue-grey dark:text-slate-400">July 12, 2024</p>
+</div>
+<p class="font-bold text-slate-900 dark:text-white">$112.30</p>
+</div>
+<div class="flex items-center rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-100">Organic Foods Store</p>
+<p class="text-sm text-muted-blue-grey dark:text-slate-400">July 8, 2024</p>
+</div>
+<p class="font-bold text-slate-900 dark:text-white">$55.00</p>
+</div>
+<div class="flex items-center rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+<div class="flex-1">
+<p class="font-semibold text-slate-800 dark:text-slate-100">Local Market</p>
+<p class="text-sm text-muted-blue-grey dark:text-slate-400">July 3, 2024</p>
+</div>
+<p class="font-bold text-slate-900 dark:text-white">$70.00</p>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

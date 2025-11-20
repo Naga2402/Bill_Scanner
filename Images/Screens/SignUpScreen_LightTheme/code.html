@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up - Bill Management App</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#359EFF",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923"
+                    },
+                    fontFamily: {
+                        display: "Manrope"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-icons-outlined {
+            font-size: 20px;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="flex flex-col h-screen">
+<header class="p-6">
+<a class="flex items-center text-zinc-800 dark:text-zinc-200" href="#">
+<span class="material-icons-outlined">arrow_back_ios_new</span>
+</a>
+</header>
+<main class="flex-grow flex flex-col justify-center px-6">
+<div class="text-center mb-10">
+<h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">Create Account</h1>
+<p class="text-zinc-500 dark:text-zinc-400">Let's get you started!</p>
+</div>
+<form action="#" class="space-y-6" method="POST">
+<div class="relative">
+<span class="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500">
+                        person
+                    </span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" id="fullname" name="fullname" placeholder="Full Name" required="" type="text"/>
+</div>
+<div class="relative">
+<span class="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500">
+                        alternate_email
+                    </span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" id="username" name="username" placeholder="Username" required="" type="text"/>
+</div>
+<div class="relative">
+<span class="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500">
+                        email
+                    </span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" id="email" name="email" placeholder="Email" required="" type="email"/>
+</div>
+<div class="relative">
+<span class="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500">
+                        lock
+                    </span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" id="password" name="password" placeholder="Password" required="" type="password"/>
+</div>
+<div class="relative">
+<span class="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500">
+                        lock_reset
+                    </span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required="" type="password"/>
+</div>
+<div>
+<button class="w-full bg-primary text-white font-semibold py-3.5 rounded-lg shadow-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark transition-all duration-300 ease-in-out transform hover:-translate-y-0.5" type="submit">
+                        Sign Up
+                    </button>
+</div>
+</form>
+</main>
+<footer class="text-center p-6 pb-12">
+<p class="text-zinc-500 dark:text-zinc-400 text-sm">
+                Already have an account? <a class="font-semibold text-primary hover:underline" href="#">Sign In</a>
+</p>
+</footer>
+</div>
+
+</body></html>

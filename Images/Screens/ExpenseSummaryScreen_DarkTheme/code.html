@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expense Summary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#359EFF", "background-light": "#f5f7f8", "background-dark": "#0f1923", "text-primary": "#4A5568", "border-light": "#E2E8F0"}, fontFamily: {display: "Manrope"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-text-primary dark:text-white">arrow_back</span>
+</div>
+<h2 class="text-text-primary text-lg font-bold leading-tight tracking-tight flex-1 text-center dark:text-white">Expense Summary</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full h-12 bg-transparent text-text-primary dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex gap-3 p-4 pt-2 overflow-x-auto whitespace-nowrap">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 dark:bg-primary px-4">
+<p class="text-primary text-sm font-semibold leading-normal dark:text-white">This Month</p>
+<span class="material-symbols-outlined text-primary dark:text-white" style="font-size: 20px;">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-border-light/50 dark:bg-white/10 px-4">
+<p class="text-text-primary/80 text-sm font-medium leading-normal dark:text-white/60">Last 3 Months</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-border-light/50 dark:bg-white/10 px-4">
+<p class="text-text-primary/80 text-sm font-medium leading-normal dark:text-white/60">This Year</p>
+</button>
+</div>
+<div class="px-4">
+<div class="flex flex-col items-center justify-center rounded-xl bg-background-light dark:bg-background-dark p-6 text-center">
+<h1 class="text-text-primary tracking-tight text-[40px] font-bold leading-tight dark:text-white">$1,234.56</h1>
+<p class="text-text-primary/70 text-base font-medium leading-normal pt-1 dark:text-white/70">Spent This Month</p>
+</div>
+</div>
+<div class="flex px-4 py-4">
+<div class="flex h-12 flex-1 items-center justify-center rounded-full bg-border-light/40 dark:bg-white/10 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-text-primary/80 dark:text-white text-sm font-semibold leading-normal transition-colors duration-300">
+<span class="truncate">By Category</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="By Category"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-text-primary/80 dark:text-white/60 text-sm font-semibold leading-normal transition-colors duration-300">
+<span class="truncate">By Vendor</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="By Vendor"/>
+</label>
+</div>
+</div>
+<div class="px-4 py-4">
+<div class="relative mx-auto flex h-64 w-64 items-center justify-center">
+<svg class="absolute h-full w-full -rotate-90" viewBox="0 0 36 36">
+<circle class="stroke-current text-[#4ade80]/20 dark:text-[#14532d]" cx="18" cy="18" fill="transparent" r="15.9155" stroke-width="4"></circle>
+<circle class="stroke-current text-[#fb923c]" cx="18" cy="18" fill="transparent" r="15.9155" stroke-dasharray="28, 100" stroke-dashoffset="0" stroke-width="4"></circle>
+<circle class="stroke-current text-[#60a5fa]" cx="18" cy="18" fill="transparent" r="15.9155" stroke-dasharray="22, 100" stroke-dashoffset="-28" stroke-width="4"></circle>
+<circle class="stroke-current text-[#a78bfa]" cx="18" cy="18" fill="transparent" r="15.9155" stroke-dasharray="18, 100" stroke-dashoffset="-50" stroke-width="4"></circle>
+<circle class="stroke-current text-[#f472b6]" cx="18" cy="18" fill="transparent" r="15.9155" stroke-dasharray="12, 100" stroke-dashoffset="-68" stroke-width="4"></circle>
+</svg>
+<div class="text-center">
+<p class="text-xs font-medium text-text-primary/60 dark:text-white/60">Total Spent</p>
+<p class="text-2xl font-bold text-text-primary dark:text-white">$1,234</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-3 px-4 pb-6">
+<h3 class="text-lg font-bold text-text-primary dark:text-white pt-4 pb-2">Spending by Category</h3>
+<div class="flex items-center gap-4 rounded-lg bg-background-light dark:bg-white/[0.07] p-3 border border-border-light/60 dark:border-transparent">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#fb923c]/20 dark:bg-[#fb923c]/20">
+<span class="material-symbols-outlined text-[#fb923c]">shopping_cart</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-text-primary dark:text-white">Groceries</p>
+<p class="text-sm text-text-primary/70 dark:text-white/70">28% of total</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-text-primary dark:text-white">$350.10</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-lg bg-background-light dark:bg-white/[0.07] p-3 border border-border-light/60 dark:border-transparent">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#60a5fa]/20 dark:bg-[#60a5fa]/20">
+<span class="material-symbols-outlined text-[#60a5fa]">directions_car</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-text-primary dark:text-white">Transport</p>
+<p class="text-sm text-text-primary/70 dark:text-white/70">22% of total</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-text-primary dark:text-white">$271.60</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-lg bg-background-light dark:bg-white/[0.07] p-3 border border-border-light/60 dark:border-transparent">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#a78bfa]/20 dark:bg-[#a78bfa]/20">
+<span class="material-symbols-outlined text-[#a78bfa]">lightbulb</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-text-primary dark:text-white">Utilities</p>
+<p class="text-sm text-text-primary/70 dark:text-white/70">18% of total</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-text-primary dark:text-white">$222.22</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-lg bg-background-light dark:bg-white/[0.07] p-3 border border-border-light/60 dark:border-transparent">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#f472b6]/20 dark:bg-[#f472b6]/20">
+<span class="material-symbols-outlined text-[#f472b6]">local_mall</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-text-primary dark:text-white">Shopping</p>
+<p class="text-sm text-text-primary/70 dark:text-white/70">12% of total</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-text-primary dark:text-white">$148.15</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

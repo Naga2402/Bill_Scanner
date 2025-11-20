@@ -1,0 +1,165 @@
+---
+
+## **🧩 PHASE 1 — MVP (Weeks 1–4)**
+
+🎯 *Goal: Build a fast, private, beautiful bill scanner.*
+
+### ✅ Deliverables
+
+| Week | Task | Description | Owner |
+| --- | --- | --- | --- |
+| 1 | **Camera + Scanner Module** | Integrate camera with auto-edge detection, cropping, and image enhancement. | 👨‍💻 Dev |
+| 1–2 | **OCR Integration** | Use Tesseract.js or Google ML Kit to extract text. | 👨‍💻 Dev / 🧠 AI |
+| 2 | **Local Storage (SQLite)** | Store scanned bill metadata and images. | 👨‍💻 Dev |
+| 2–3 | **UI Setup from Figma Kit** | Implement core screens: Scan, History, Bill Details, Settings. | 🎨 UI |
+| 3 | **Manual Crop + Edit** | User can adjust detected edges. | 👨‍💻 Dev |
+| 3–4 | **Biometric App Lock** | Integrate fingerprint/Face ID authentication. | 👨‍💻 Dev |
+| 4 | **Offline Mode + Sync Hook** | Enable full offline use; plan future cloud sync endpoint. | 👨‍💻 Dev |
+| 4 | **Testing & Beta Launch (Closed)** | Ship internal APK for testing. | 🧾 PM |
+
+### 🧱 Tech
+
+- Flutter
+- Firebase
+- Tesseract.js (or ML Kit Vision)
+- SQLite (Offline DB) or better
+
+---
+
+## **⚙️ PHASE 2 — SMART FEATURES (Weeks 5–8)**
+
+🎯 *Goal: Make the app feel intelligent & useful daily.*
+
+### ✅ Deliverables
+
+| Week | Task | Description | Owner |
+| --- | --- | --- | --- |
+| 5 | **Auto Categorization Rules** | Classify bills (food, utility, shopping) based on OCR text. | 🧠 AI |
+| 5–6 | **Expense Summary Screen** | Add charts showing total spend by category & vendor. | 🎨 UI / 👨‍💻 Dev |
+| 6 | **Smart Notifications** | “Electricity bill due soon”, “You spent ₹2,000 less this week.” | 👨‍💻 Dev |
+| 6–7 | **Cloud Sync (Firebase Storage)** | Upload scanned bills and metadata to user cloud account. | 👨‍💻 Dev |
+| 7 | **Search & Filters** | Search by vendor, category, or date. | 👨‍💻 Dev |
+| 7–8 | **Export to PDF/CSV** | Allow exporting bills or summaries. | 👨‍💻 Dev |
+| 8 | **Dark Mode + Animations** | Polish with Material 3 dynamic colors, smooth transitions. | 🎨 UI |
+
+---
+
+## **🧠 PHASE 3 — INSIGHTS & AI (Weeks 9–12)**
+
+🎯 *Goal: Make it a smart financial companion.*
+
+### ✅ Deliverables
+
+| Week | Task | Description | Owner |
+| --- | --- | --- | --- |
+| 9 | **Recurring Expense Detection** | Detect monthly vendors (Netflix, Airtel, etc.). | 🧠 AI |
+| 9–10 | **Warranty Reminder System** | Identify product purchases and set expiry reminders. | 🧠 AI / 👨‍💻 Dev |
+| 10 | **AI Expense Insights** | “Top categories this month,” “Unusual spend detected.” | 🧠 AI |
+| 11 | **AI Chat Assistant** | Query bills: “Show me all phone bills in August.” | 🧠 AI / 👨‍💻 Dev |
+| 12 | **Dashboard Redesign** | Summary + Charts + Insights feed. | 🎨 UI |
+| 12 | **Open Beta Launch** | Publish to Play Store (open beta). | 🧾 PM |
+
+---
+
+## **🔒 PHASE 4 — TRUST & MONETIZATION (Weeks 13–16)**
+
+🎯 *Goal: Build loyalty, privacy trust, and revenue model.*
+
+### ✅ Deliverables
+
+| Week | Task | Description | Owner |
+| --- | --- | --- | --- |
+| 13 | **End-to-End Encryption for Cloud Sync** | Secure cloud data storage. | 👨‍💻 Dev |
+| 13–14 | **Privacy Dashboard** | Show data storage and access transparency. | 🎨 UI |
+| 14 | **App Lock Enhancements** | Add hidden folder mode (vault). | 👨‍💻 Dev |
+| 14–15 | **Subscription System (Pro Tier)** | Stripe / Razorpay integration for in-app purchases. | 👨‍💻 Dev |
+| 15 | **Referral Rewards** | Referral links = free months. | 👨‍💻 Dev |
+| 16 | **Pro Features Activation** | AI insights, unlimited cloud storage for paid users. | 🧠 AI / 👨‍💻 Dev |
+| 16 | **Public Launch** | Publish on Play Store & App Store. | 🧾 PM |
+
+---
+
+## **🌍 PHASE 5 — GROWTH ENGINE (Weeks 17–24)**
+
+🎯 *Goal: Drive virality, retention, and integrations.*
+
+### ✅ Deliverables
+
+| Week | Task | Description | Owner |
+| --- | --- | --- | --- |
+| 17–18 | **Email Bill Import (Gmail API)** | Auto-fetch receipts from email. | 👨‍💻 Dev |
+| 18–19 | **SMS Bill Parsing** | Detect bills and link to vendors. | 👨‍💻 Dev |
+| 19–20 | **Gamification Layer** | Streaks, rewards, achievements. | 🎨 UI / 👨‍💻 Dev |
+| 20–21 | **Multi-Language Support** | Hindi, Tamil, Marathi, etc. | 👨‍💻 Dev |
+| 22 | **In-App Sharing** | Share summaries or bills as links. | 👨‍💻 Dev |
+| 23 | **Growth Push Notifications** | “Your spending dropped 10% 🎉” | 🧾 PM |
+| 24 | **Marketing Launch Campaign** | Influencers, app reviews, YouTube demo. | 🧾 PM |
+
+---
+
+## **💎 PHASE 6 — ECOSYSTEM (Post 6 Months)**
+
+🎯 *Goal: Build the brand ecosystem and B2B opportunities.*
+
+### ✅ Deliverables
+
+| Task | Description | Owner |
+| --- | --- | --- |
+| **Business Mode** | For small shops to track invoices. | 👨‍💻 Dev |
+| **Web Dashboard** | Manage bills online. | 👨‍💻 Dev / 🎨 UI |
+| **Bill Scanner API (B2B)** | Offer your OCR + categorization as API. | 🧠 AI |
+| **Family Sharing** | Shared folders & multi-user accounts. | 👨‍💻 Dev |
+| **Tax Mode Export** | Generate yearly tax expense summary. | 🧾 PM |
+
+---
+
+# 🧭 PRIORITY TRACKER
+
+| Priority | Feature | Reason |
+| --- | --- | --- |
+| ⭐⭐⭐⭐⭐ | Scan → OCR → Categorize | Core user value |
+| ⭐⭐⭐⭐ | AI Insights & Reminders | Retention & differentiation |
+| ⭐⭐⭐ | Cloud Sync + Privacy | Trust & monetization |
+| ⭐⭐ | Gamification & Rewards | Growth & engagement |
+| ⭐ | Ecosystem API | Long-term scalability |
+
+---
+
+# 📅 HIGH-LEVEL TIMELINE
+
+| Quarter | Milestone |
+| --- | --- |
+| Q4 2025 | MVP + Closed Beta |
+| Q1 2026 | AI Upgrade + Public Launch |
+| Q2 2026 | Growth Engine + Integrations |
+| Q3 2026 | Ecosystem & Web Expansion |
+
+## 🧰 Suggested Folder Setup in Cursor
+
+```
+/src
+  /ui
+    /components
+    /screens
+  /core
+    camera.js
+    ocr.js
+    storage.js
+    cloud.js
+  /ai
+    categorizer.js
+    assistant.js
+    insights.js
+  /features
+    notifications.js
+    security.js
+    referrals.js
+  /assets
+    /icons
+    /fonts
+  /utils
+    helpers.js
+    constants.js
+  App.js
+
+```

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Filter Bills</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3d9cf5",
+              "background-light": "#f5f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-white dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-[#111518] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined !text-2xl">close</span>
+</div>
+<h2 class="text-[#111518] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Filter Bills</h2>
+<div class="flex w-12 items-center justify-end">
+<p class="text-primary text-base font-bold leading-normal tracking-[0.015em] shrink-0">Reset</p>
+</div>
+</div>
+<div class="flex-grow pb-32">
+<!-- Search Bar -->
+<div class="px-4 py-3 bg-white dark:bg-background-dark">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#60768a] dark:text-gray-400 flex border-none bg-background-light dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined !text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-[#111518] dark:text-white focus:outline-0 focus:ring-0 border-none bg-background-light dark:bg-gray-800 focus:border-none h-full placeholder:text-[#60768a] dark:placeholder:text-gray-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search by name, item..." value=""/>
+</div>
+</label>
+</div>
+<!-- Date Range Section -->
+<div class="bg-white dark:bg-background-dark">
+<h3 class="text-[#111518] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Date Range</h3>
+<div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111518] dark:text-gray-300 text-base font-medium leading-normal pb-2">Start Date</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] dark:text-white focus:outline-0 focus:ring-0 border border-[#dbe1e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#60768a] dark:placeholder:text-gray-400 p-[15px] text-base font-normal leading-normal" value="01/01/2024"/>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111518] dark:text-gray-300 text-base font-medium leading-normal pb-2">End Date</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] dark:text-white focus:outline-0 focus:ring-0 border border-[#dbe1e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#60768a] dark:placeholder:text-gray-400 p-[15px] text-base font-normal leading-normal" value="31/01/2024"/>
+</label>
+</div>
+</div>
+<!-- Category Section -->
+<div class="bg-white dark:bg-background-dark">
+<h3 class="text-[#111518] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Category</h3>
+<div class="flex flex-wrap gap-2 px-4 py-3">
+<button class="px-4 py-2 rounded-full text-white bg-primary text-sm font-semibold">Utilities</button>
+<button class="px-4 py-2 rounded-full text-[#111518] dark:text-white bg-background-light dark:bg-gray-800 border border-[#dbe1e6] dark:border-gray-600 text-sm font-semibold">Groceries</button>
+<button class="px-4 py-2 rounded-full text-[#111518] dark:text-white bg-background-light dark:bg-gray-800 border border-[#dbe1e6] dark:border-gray-600 text-sm font-semibold">Rent</button>
+<button class="px-4 py-2 rounded-full text-white bg-primary text-sm font-semibold">Transport</button>
+<button class="px-4 py-2 rounded-full text-[#111518] dark:text-white bg-background-light dark:bg-gray-800 border border-[#dbe1e6] dark:border-gray-600 text-sm font-semibold">Entertainment</button>
+</div>
+</div>
+<!-- Vendor Section -->
+<div class="bg-white dark:bg-background-dark">
+<h3 class="text-[#111518] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Vendor</h3>
+<div class="flex flex-wrap gap-2 px-4 py-3">
+<button class="px-4 py-2 rounded-full text-[#111518] dark:text-white bg-background-light dark:bg-gray-800 border border-[#dbe1e6] dark:border-gray-600 text-sm font-semibold">Comcast</button>
+<button class="px-4 py-2 rounded-full text-white bg-primary text-sm font-semibold">Trader Joe's</button>
+<button class="px-4 py-2 rounded-full text-[#111518] dark:text-white bg-background-light dark:bg-gray-800 border border-[#dbe1e6] dark:border-gray-600 text-sm font-semibold">Metro</button>
+<button class="px-4 py-2 rounded-full text-[#111518] dark:text-white bg-background-light dark:bg-gray-800 border border-[#dbe1e6] dark:border-gray-600 text-sm font-semibold">Netflix</button>
+</div>
+</div>
+<!-- Amount Range Section -->
+<div class="bg-white dark:bg-background-dark">
+<h3 class="text-[#111518] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Amount Range</h3>
+<div class="px-4 py-6">
+<div class="relative h-1 bg-background-light dark:bg-gray-700 rounded-full">
+<div class="absolute h-1 bg-primary rounded-full" style="left: 15%; width: 60%;"></div>
+<div class="absolute -top-2 w-5 h-5 bg-white dark:bg-gray-300 border-2 border-primary rounded-full" style="left: 15%;"></div>
+<div class="absolute -top-2 w-5 h-5 bg-white dark:bg-gray-300 border-2 border-primary rounded-full" style="left: 75%;"></div>
+</div>
+<div class="flex justify-between mt-3 text-sm text-[#60768a] dark:text-gray-400">
+<span>$50</span>
+<span>$400</span>
+</div>
+</div>
+</div>
+<!-- Payment Status Section -->
+<div class="bg-white dark:bg-background-dark">
+<h3 class="text-[#111518] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Payment Status</h3>
+<div class="px-4 py-3">
+<div class="flex items-center justify-between p-4 rounded-lg bg-background-light dark:bg-gray-800">
+<p class="text-[#111518] dark:text-white font-medium">Show only paid bills</p>
+<div class="relative inline-block w-12 h-7 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-7 h-7 rounded-full bg-white dark:bg-gray-400 border-4 appearance-none cursor-pointer checked:right-0 checked:bg-primary dark:checked:bg-primary" id="toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-7 rounded-full bg-gray-300 dark:bg-gray-600 cursor-pointer" for="toggle"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-700">
+<div class="flex gap-4">
+<button class="flex-1 py-4 text-center rounded-lg text-primary bg-primary/20 font-bold">Reset</button>
+<button class="flex-1 py-4 text-center rounded-lg text-white bg-primary font-bold">Apply Filters</button>
+</div>
+</div>
+</div>
+</body></html>

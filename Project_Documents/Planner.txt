@@ -1,0 +1,194 @@
+## 🧱 **Backlog (Planned / Upcoming Tasks)**
+
+### 🔹 PHASE 1 — MVP
+
+- [ ]  **📸 Camera + Auto-Crop Module**
+    
+    👨‍💻 *Dev* — Implement edge detection, brightness enhancement, crop adjust.
+    
+    ⭐⭐⭐⭐⭐
+    
+- [ ]  **🔤 OCR Integration (Tesseract / ML Kit)**
+    
+    🧠 *AI + Dev* — Extract text from images for amount, date, and vendor.
+    
+- [ ]  **💾 Local Storage (SQLite)**
+    
+    👨‍💻 *Dev* — Store bill metadata and image paths.
+    
+- [ ]  **🔐 Biometric App Lock**
+    
+    👨‍💻 *Dev* — FaceID / Fingerprint app unlock.
+    
+- [ ]  **🖼️ Figma UI Implementation**
+    
+    🎨 *UI* — Apply color scheme, dark mode, transitions.
+    
+- [ ]  **🛰️ Offline Mode Support**
+    
+    👨‍💻 *Dev* — App works without internet, syncs later.
+    
+
+---
+
+### 🔹 PHASE 2 — SMART FEATURES
+
+- [ ]  **🧠 Rule-Based Categorization**
+    
+    🧠 *AI* — Categorize bills via keywords (“electricity,” “groceries”).
+    
+- [ ]  **📊 Expense Summary Screen**
+    
+    🎨 *UI + Dev* — Pie/Bar chart by category and vendor.
+    
+- [ ]  **🔔 Smart Notifications**
+    
+    👨‍💻 *Dev* — Due date alerts, spend summaries.
+    
+- [ ]  **☁️ Cloud Sync (Firebase)**
+    
+    👨‍💻 *Dev* — Upload bills + metadata to cloud.
+    
+- [ ]  **🔎 Search & Filter Feature**
+    
+    👨‍💻 *Dev* — Search by date, vendor, or category.
+    
+- [ ]  **📤 Export (PDF/CSV)**
+    
+    👨‍💻 *Dev* — Export bills or reports.
+    
+
+---
+
+### 🔹 PHASE 3 — AI & INSIGHTS
+
+- [ ]  **♻️ Recurring Vendor Detection**
+    
+    🧠 *AI* — Identify Netflix, Airtel, etc.
+    
+- [ ]  **🔧 Warranty Reminder System**
+    
+    🧠 *AI + Dev* — Detect purchase date and expiry.
+    
+- [ ]  **💬 AI Chat Assistant**
+    
+    🧠 *AI + Dev* — Query bills: “Show food bills from March.”
+    
+- [ ]  **📈 Insights Dashboard**
+    
+    🎨 *UI + Dev* — Trend lines, category comparisons.
+    
+
+---
+
+### 🔹 PHASE 4 — TRUST & MONETIZATION
+
+- [ ]  **🔒 End-to-End Encryption**
+    
+    👨‍💻 *Dev* — Secure cloud sync data.
+    
+- [ ]  **👁️ Privacy Dashboard**
+    
+    🎨 *UI* — Transparency on data stored.
+    
+- [ ]  **💳 In-App Purchases (Stripe / Razorpay)**
+    
+    👨‍💻 *Dev* — Subscription tiers.
+    
+- [ ]  **🎁 Referral Rewards**
+    
+    👨‍💻 *Dev* — Invite friends → earn free months.
+    
+
+---
+
+### 🔹 PHASE 5 — GROWTH & RETENTION
+
+- [ ]  **📧 Email Bill Import (Gmail API)**
+    
+    👨‍💻 *Dev* — Fetch PDF bills automatically.
+    
+- [ ]  **📱 SMS Parsing**
+    
+    👨‍💻 *Dev* — Detect payment alerts and link them.
+    
+- [ ]  **🏆 Gamification (Streaks / Badges)**
+    
+    🎨 *UI + Dev* — Encourage daily scans.
+    
+- [ ]  **🌐 Multi-Language Support**
+    
+    👨‍💻 *Dev* — English, Hindi, Tamil, Marathi.
+    
+- [ ]  **📤 In-App Sharing**
+    
+    👨‍💻 *Dev* — Share summary links or bills.
+    
+- [ ]  **📣 Push Campaigns**
+    
+    🧾 *PM* — “Your spending dropped 10% 🎉.”
+    
+
+---
+
+### 🔹 PHASE 6 — ECOSYSTEM EXPANSION
+
+- [ ]  **🏪 Business Mode**
+    
+    👨‍💻 *Dev* — For small vendors to store invoices.
+    
+- [ ]  **💻 Web Dashboard**
+    
+    👨‍💻 *Dev + UI* — Manage bills online.
+    
+- [ ]  **🧩 Bill Scanner API (B2B)**
+    
+    🧠 *AI* — External API for OCR + Categorization.
+    
+- [ ]  **👨‍👩‍👧 Family Sharing Mode**
+    
+    👨‍💻 *Dev* — Shared folders & budgets.
+    
+- [ ]  **📑 Tax Mode Export**
+    
+    🧾 *PM* — Generate deductible expense reports.
+    
+
+---
+
+## 🚧 **In Progress**
+
+- [ ]  **📸 Camera + Auto-Crop Prototype**
+- [ ]  **🖼️ Figma UI Integration**
+- [ ]  **🔤 OCR Testing on Sample Bills**
+
+---
+
+## 🧪 **Review / Test**
+
+- [ ]  **⚡ App Performance Optimization**
+    - Compress images before saving.
+    - Reduce OCR latency.
+- [ ]  **📱 UX Testing (Closed Beta)**
+    - Android + iOS testers feedback.
+- [ ]  **🔒 Security Audit (Encryption Validation)**
+
+---
+
+## ✅ **Done**
+
+*(This will grow as you move cards across — start here after MVP sprint completion)*
+
+- [x]  **📂 Project Setup in Cursor**
+- [x]  **🧰 Folder Structure Defined**
+- [x]  **🎨 Imported Figma Kit Assets**
+
+---
+
+# 🧭 **Usage Tips**
+
+1. Copy this entire markdown into **Notion**, **Trello**, or **Cursor Notes**.
+2. Each `[ ]` acts as a checklist card.
+3. Move tasks between columns as your sprints progress.
+4. Tag tasks by team (Dev, UI, AI, PM) or priority (⭐ levels).
+5. Create weekly sprints (e.g., `MVP Sprint 1`, `AI Sprint 2`).

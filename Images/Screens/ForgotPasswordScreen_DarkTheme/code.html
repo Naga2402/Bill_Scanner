@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forgot Password</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#359EFF", "background-light": "#f5f7f8", "background-dark": "#0f1923", "surface-light": "#FFFFFF", "surface-dark": "#1E293B", "text-light-primary": "#1E293B", "text-dark-primary": "#F8FAFC", "text-light-secondary": "#64748B", "text-dark-secondary": "#94A3B8", "border-light": "#CBD5E1", "border-dark": "#475569"}, fontFamily: {display: "Manrope"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark antialiased">
+<div class="flex flex-col h-screen">
+<div class="flex-grow flex flex-col items-center justify-center p-6">
+<div class="w-full max-w-sm">
+<div class="text-center mb-10">
+<div class="inline-flex items-center justify-center h-16 w-16 bg-primary/10 dark:bg-primary/20 rounded-full mb-6">
+<span class="material-icons-outlined text-4xl text-primary">
+              lock_reset
+            </span>
+</div>
+<h1 class="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">Forgot Password?</h1>
+<p class="mt-2 text-base text-text-light-secondary dark:text-text-dark-secondary">
+            No worries, we'll send you reset instructions.
+          </p>
+</div>
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary mb-2" for="email">Email address</label>
+<div class="relative">
+<span class="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-light-secondary dark:text-text-dark-secondary">
+                mail_outline
+              </span>
+<input class="block w-full rounded-lg border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark py-3 pl-12 pr-4 text-text-light-primary dark:text-text-dark-primary placeholder:text-text-light-secondary dark:placeholder:text-text-dark-secondary focus:ring-2 focus:ring-primary focus:border-primary" id="email" name="email" placeholder="Enter your email" required="" type="email"/>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-lg bg-primary px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors duration-200" type="submit">
+              Send Instructions
+            </button>
+</div>
+</form>
+<div class="mt-8 text-center">
+<a class="inline-flex items-center gap-2 font-medium text-primary hover:underline" href="#">
+<span class="material-icons-outlined">
+              arrow_back
+            </span>
+<span>Back to Sign In</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</body></html>

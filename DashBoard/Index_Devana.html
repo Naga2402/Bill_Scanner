@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Scanner - Development Dashboard (DEv Version)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Samarkan Font -->
+    <link rel="stylesheet" href="fonts/samarkan.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Samarkan', 'Inter', 'system-ui', 'sans-serif'],
+                        samarkan: ['Samarkan', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                        },
+                    },
+                    animation: {
+                        'fade-in-down': 'fadeInDown 0.8s ease',
+                        'fade-in-up': 'fadeInUp 0.8s ease',
+                        'fade-in': 'fadeIn 1s ease',
+                        'progress-glow': 'progressGlow 2s ease infinite',
+                    },
+                    keyframes: {
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        progressGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)' },
+                            '50%': { boxShadow: '0 0 30px rgba(139, 92, 246, 0.8)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Samarkan', 'Inter', sans-serif;
+        }
+        /* Headings use Samarkan */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Samarkan', 'Inter', sans-serif;
+            letter-spacing: 0.02em;
+        }
+        /* Keep small text readable with Inter */
+        .text-xs, .text-sm, kbd, .font-mono {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+        .gradient-full {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+        }
+        .animated-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        .animated-bg::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundMove 20s ease infinite;
+        }
+        @keyframes backgroundMove {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        .progress-bar-animated {
+            animation: progressGlow 2s ease infinite;
+        }
+    </style>
+</head>
+<body class="animated-bg min-h-screen text-slate-100 samarkan-font">
+    <!-- Hero Section -->
+    <section class="pt-16 pb-10 text-center">
+        <div class="max-w-7xl mx-auto px-5">
+            <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-3 animate-fade-in-down">
+                📱 Bill Scanner App
+            </h1>
+            <p class="text-xl text-slate-400 mb-10 animate-fade-in-up">
+                Development Progress Dashboard
+            </p>
+            
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+                <!-- Overall Progress -->
+                <div class="glass-effect border border-slate-700/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-500/30 animate-fade-in-up">
+                    <div class="text-4xl font-bold gradient-text mb-2" id="totalProgress">0%</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider">Overall Progress</div>
+                </div>
+                
+                <!-- Completed Tasks -->
+                <div class="glass-effect border border-slate-700/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-500/30 animate-fade-in-up" style="animation-delay: 0.1s">
+                    <div class="text-4xl font-bold gradient-text mb-2" id="completedTasks">0</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider">Tasks Completed</div>
+                </div>
+                
+                <!-- Total Tasks -->
+                <div class="glass-effect border border-slate-700/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-500/30 animate-fade-in-up" style="animation-delay: 0.2s">
+                    <div class="text-4xl font-bold gradient-text mb-2" id="totalTasks">0</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider">Total Tasks</div>
+                </div>
+                
+                <!-- Current Phase -->
+                <div class="glass-effect border border-slate-700/50 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-500/30 animate-fade-in-up" style="animation-delay: 0.3s">
+                    <div class="text-4xl font-bold gradient-text mb-2" id="currentPhase">Phase 1</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider">Current Phase</div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden shadow-inner">
+                <div class="h-full gradient-full rounded-full transition-all duration-1000 progress-bar-animated" id="heroProgressBar" style="width: 0%"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-8 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-3xl font-bold text-center mb-8">📅 Development Timeline</h2>
+            <div class="glass-effect border border-slate-700/50 rounded-2xl p-8 flex flex-wrap justify-center gap-12">
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-sm text-slate-400 uppercase tracking-wider">Start Date</span>
+                    <span class="text-xl font-semibold text-primary-500" id="startDate">Oct 2025</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-sm text-slate-400 uppercase tracking-wider">Expected Launch</span>
+                    <span class="text-xl font-semibold text-primary-500">Q1 2026</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-sm text-slate-400 uppercase tracking-wider">Days Elapsed</span>
+                    <span class="text-xl font-semibold text-primary-500" id="daysElapsed">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phases Section -->
+    <section class="py-10">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-3xl font-bold text-center mb-8">🚀 Development Phases</h2>
+            <div class="space-y-8" id="phasesContainer">
+                <!-- Phase cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="py-10 pb-16">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="glass-effect border border-slate-700/50 rounded-3xl p-10 text-center">
+                <h3 class="text-2xl font-bold mb-6">⚡ Quick Actions</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="resetProgress()" class="px-7 py-3.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-primary-500 text-slate-100 rounded-xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/30">
+                        🔄 Reset Progress
+                    </button>
+                    <button onclick="exportProgress()" class="px-7 py-3.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-primary-500 text-slate-100 rounded-xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/30">
+                        💾 Export Report
+                    </button>
+                    <button onclick="showStats()" class="px-7 py-3.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-primary-500 text-slate-100 rounded-xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/30">
+                        📊 View Analytics Dashboard
+                    </button>
+                    <button onclick="location.reload()" class="px-7 py-3.5 gradient-primary hover:opacity-90 text-white rounded-xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/50">
+                        🔃 Refresh Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-700/50 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-5">
+            <p>Built with ❤️ for Bill Scanner Development | Last Updated: <span id="lastUpdated" class="text-primary-500">-</span></p>
+        </div>
+    </footer>
+
+    <!-- Keyboard Shortcuts Floating Button -->
+    <button onclick="toggleShortcuts()" class="fixed bottom-6 right-6 w-14 h-14 gradient-primary rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center text-2xl hover:scale-110 z-50" title="Keyboard Shortcuts">
+        ⌨️
+    </button>
+
+    <!-- Keyboard Shortcuts Panel -->
+    <div id="shortcutsPanel" class="fixed bottom-24 right-6 glass-effect border border-slate-700 rounded-2xl p-6 shadow-2xl hidden z-50 w-80 animate-fade-in-up">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-bold flex items-center gap-2">
+                ⌨️ Keyboard Shortcuts
+            </h3>
+            <button onclick="toggleShortcuts()" class="text-slate-400 hover:text-white transition-colors">✕</button>
+        </div>
+        <div class="space-y-3">
+            <div class="flex justify-between items-center">
+                <span class="text-slate-300">Export Report</span>
+                <kbd class="px-3 py-1 bg-slate-800 border border-slate-600 rounded text-xs font-mono">Ctrl + E</kbd>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-slate-300">View Analytics</span>
+                <kbd class="px-3 py-1 bg-slate-800 border border-slate-600 rounded text-xs font-mono">Ctrl + S</kbd>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-slate-300">Refresh Dashboard</span>
+                <kbd class="px-3 py-1 bg-slate-800 border border-slate-600 rounded text-xs font-mono">F5</kbd>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-slate-300">Toggle Shortcuts</span>
+                <kbd class="px-3 py-1 bg-slate-800 border border-slate-600 rounded text-xs font-mono">Ctrl + K</kbd>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-slate-300">Close Modals</span>
+                <kbd class="px-3 py-1 bg-slate-800 border border-slate-600 rounded text-xs font-mono">ESC</kbd>
+            </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-700/50">
+            <p class="text-xs text-slate-400 text-center">Click the ⌨️ button or press Ctrl+K</p>
+        </div>
+    </div>
+
+    <!-- Analytics Modal -->
+    <div id="analyticsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4" onclick="closeAnalytics(event)">
+        <div class="glass-effect border border-slate-700 rounded-3xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-700/50">
+                <h2 class="text-3xl font-bold flex items-center gap-3">
+                    📊 Development Analytics
+                </h2>
+                <button onclick="closeAnalytics()" class="text-slate-400 hover:text-white transition-colors text-2xl">✕</button>
+            </div>
+
+            <!-- Analytics Content -->
+            <div class="space-y-6">
+                <!-- Overall Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6 text-center">
+                        <div class="text-4xl font-bold gradient-text mb-2" id="modalOverallProgress">0%</div>
+                        <div class="text-sm text-slate-400">Overall Progress</div>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6 text-center">
+                        <div class="text-4xl font-bold text-emerald-400 mb-2" id="modalCompletedTasks">0</div>
+                        <div class="text-sm text-slate-400">Tasks Completed</div>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6 text-center">
+                        <div class="text-4xl font-bold text-amber-400 mb-2" id="modalTasksPerDay">0.00</div>
+                        <div class="text-sm text-slate-400">Tasks Per Day</div>
+                    </div>
+                </div>
+
+                <!-- Phase Breakdown -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">📈 Phase-by-Phase Breakdown</h3>
+                    <div class="space-y-3" id="phaseBreakdown">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Time Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+                        <h4 class="font-semibold mb-3 flex items-center gap-2">
+                            📅 Timeline
+                        </h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Start Date:</span>
+                                <span class="text-primary-400" id="modalStartDate">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Days Elapsed:</span>
+                                <span class="text-primary-400" id="modalDaysElapsed">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Expected Launch:</span>
+                                <span class="text-primary-400">Q1 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6">
+                        <h4 class="font-semibold mb-3 flex items-center gap-2">
+                            🎯 Current Status
+                        </h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Current Phase:</span>
+                                <span class="text-primary-400" id="modalCurrentPhase">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Remaining Tasks:</span>
+                                <span class="text-primary-400" id="modalRemainingTasks">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Active Phases:</span>
+                                <span class="text-primary-400" id="modalActivePhases">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-3 pt-4">
+                    <button onclick="exportProgress()" class="flex-1 px-6 py-3 gradient-primary hover:opacity-90 rounded-xl font-medium transition-all duration-300">
+                        💾 Export Full Report
+                    </button>
+                    <button onclick="closeAnalytics()" class="flex-1 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-medium transition-all duration-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
+

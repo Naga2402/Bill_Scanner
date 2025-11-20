@@ -1,0 +1,31 @@
+/* Samarkan Font */
+@font-face {
+    font-family: 'Samarkan';
+    src: url('samarkan-normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Font fallback chain */
+body.samarkan-font {
+    font-family: 'Samarkan', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Apply Samarkan to headings and important text */
+.samarkan-font h1,
+.samarkan-font h2,
+.samarkan-font h3,
+.samarkan-font h4,
+.samarkan-font .hero-title,
+.samarkan-font .section-title {
+    font-family: 'Samarkan', 'Inter', sans-serif;
+}
+
+/* Keep body text readable with Inter for smaller text */
+.samarkan-font .text-sm,
+.samarkan-font .text-xs,
+.samarkan-font p {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+

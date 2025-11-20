@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#359EFF", "background-light": "#f5f7f8", "background-dark": "#0f1923", "text-primary-light": "#4A5568", "text-primary-dark": "#E2E8F0", "text-secondary-light": "#A0AEC0", "text-secondary-dark": "#A0AEC0", "border-light": "#E2E8F0", "border-dark": "#2D3748"}, fontFamily: {display: "Manrope"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between bg-background-light dark:bg-background-dark sticky top-0 z-10 border-b border-border-light dark:border-border-dark">
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Settings</h2>
+</div>
+<!-- Main Content -->
+<main class="flex-1 pb-24">
+<!-- Profile Header -->
+<div class="p-4 @container">
+<div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20" data-alt="User avatar placeholder image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1YFBUqbXTpZHfRPsMCdH7R5wxDNHQnxU28ZCUl01QXVOaIO7r2b_jlZApyzOqr0R2eizRUbmfQDe8_BSklVyiMgQzKqt1fGwYwn1M4OrhdpStwQAUNAlhBlshto2-8JZGWnVGz7PnNA2BiBToqWxK6gUUg93a7noXnHppGRlGcGvWfAVcrIRbryIiBKHP5loN6fK-gFlWb1teEf25SnyFIkn5yXiCC5XvQIe8JsBCY1aM7F6WJON0jJPEUrskejqAtalugJbT6bQ");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-[22px] font-bold leading-tight tracking-[-0.015em]">Alex Johnson</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">alex.johnson@email.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4">
+<div class="bg-white dark:bg-background-dark dark:border dark:border-border-dark rounded-xl shadow-sm overflow-hidden">
+<!-- Section Header: Account Management -->
+<h3 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Account Management</h3>
+<!-- ListItem: Manage Account -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Manage Account</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem: Subscription -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Subscription</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 mt-6">
+<div class="bg-white dark:bg-background-dark dark:border dark:border-border-dark rounded-xl shadow-sm overflow-hidden">
+<!-- Section Header: App Preferences -->
+<h3 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">App Preferences</h3>
+<!-- ListItem: Currency -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">attach_money</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Currency</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">USD</p>
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem: Appearance -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">contrast</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Appearance</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">Light</p>
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem: Default Category -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">label</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Default Category</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">Uncategorized</p>
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 mt-6">
+<div class="bg-white dark:bg-background-dark dark:border dark:border-border-dark rounded-xl shadow-sm overflow-hidden">
+<!-- Section Header: Notifications -->
+<h3 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Notifications</h3>
+<!-- ListItem with Toggle: Push Notifications -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Push Notifications</p>
+</div>
+<div class="shrink-0">
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-700 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-primary/50"></div>
+</label>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem with Toggle: Email Notifications -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Email Notifications</p>
+</div>
+<div class="shrink-0">
+<label class="relative inline-flex cursor-pointer items-center">
+<input class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-700 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-primary/50"></div>
+</label>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem with Toggle: Bill Reminders -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Bill Reminders</p>
+</div>
+<div class="shrink-0">
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 dark:bg-gray-700 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-2 peer-focus:ring-primary/50"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 mt-6">
+<div class="bg-white dark:bg-background-dark dark:border dark:border-border-dark rounded-xl shadow-sm overflow-hidden">
+<!-- Section Header: Support & Legal -->
+<h3 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Support &amp; Legal</h3>
+<!-- ListItem: Help Center -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">help_center</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Help Center</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem: Contact Support -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Contact Support</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem: Privacy Policy -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">privacy_tip</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Privacy Policy</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="px-4"><hr class="border-border-light dark:border-border-dark ml-14"/></div>
+<!-- ListItem: Terms of Service -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-primary-light dark:text-text-primary-dark flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-normal leading-normal flex-1 truncate">Terms of Service</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Log Out Button -->
+<div class="p-4 mt-6">
+<button class="w-full h-12 flex items-center justify-center rounded-xl bg-red-100 dark:bg-red-900/40 text-red-500 dark:text-red-400 font-bold text-base leading-normal">Log Out</button>
+</div>
+</main>
+</div>
+</body></html>

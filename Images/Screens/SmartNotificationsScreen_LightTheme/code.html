@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Notifications</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#479ceb",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "text-primary-light": "#111827",
+                        "text-primary-dark": "#f9fafb",
+                        "text-secondary-light": "#6b7280",
+                        "text-secondary-dark": "#9ca3af",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1f2937",
+                        "soft-amber": "#ffedd5",
+                        "text-amber": "#9a3412",
+                        "soft-red": "#fee2e2",
+                        "text-red": "#991b1b",
+                        "soft-green": "#dcfce7",
+                        "text-green": "#166534"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-10 flex items-center justify-between border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 p-4 pb-2 backdrop-blur-sm">
+<div class="flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-text-primary-light dark:text-text-primary-dark">arrow_back</span>
+</div>
+<h2 class="flex-1 text-center text-lg font-bold leading-tight tracking-[-0.015em] text-text-primary-light dark:text-text-primary-dark">Smart Alerts</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-transparent text-text-primary-light dark:text-text-primary-dark min-w-0 p-0">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-border-light dark:border-border-dark px-4 bg-background-light dark:bg-background-dark">
+<div class="flex justify-between">
+<a class="flex flex-1 flex-col items-center justify-center border-b-[3px] border-b-primary pb-[13px] pt-4 text-primary" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">All</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center border-b-[3px] border-b-transparent pb-[13px] pt-4 text-text-secondary-light dark:text-text-secondary-dark" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Unread</p>
+</a>
+</div>
+</div>
+<div class="flex-1 flex-col">
+<!-- Section Header: Today -->
+<h3 class="px-4 pb-2 pt-6 text-lg font-bold leading-tight tracking-[-0.015em] text-text-primary-light dark:text-text-primary-dark">Today</h3>
+<div class="flex flex-col gap-2 px-4">
+<!-- Overdue Bill Notification Card -->
+<div class="flex items-center gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4">
+<div class="flex items-center gap-4 flex-1">
+<div class="flex relative">
+<div class="absolute -top-1 -left-1 h-3 w-3 rounded-full bg-primary border-2 border-surface-light dark:border-surface-dark"></div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-red dark:bg-soft-red/20 text-text-red dark:text-red-300">
+<span class="material-symbols-outlined">priority_high</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold leading-normal line-clamp-1">Netflix Bill Overdue</p>
+<p class="text-sm font-normal leading-normal line-clamp-2 text-text-secondary-light dark:text-text-secondary-dark">Was due yesterday</p>
+</div>
+</div>
+<div class="shrink-0 text-sm font-normal text-text-secondary-light dark:text-text-secondary-dark">1h ago</div>
+</div>
+<!-- Upcoming Bill Notification Card -->
+<div class="flex items-center gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4">
+<div class="flex items-center gap-4 flex-1">
+<div class="flex relative">
+<div class="absolute -top-1 -left-1 h-3 w-3 rounded-full bg-primary border-2 border-surface-light dark:border-surface-dark"></div>
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-amber dark:bg-soft-amber/20 text-text-amber dark:text-amber-300">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold leading-normal line-clamp-1">Internet Bill Due</p>
+<p class="text-sm font-normal leading-normal line-clamp-2 text-text-secondary-light dark:text-text-secondary-dark">Due in 2 days</p>
+</div>
+</div>
+<div class="shrink-0"><button class="rounded-full bg-primary/20 px-4 py-2 text-sm font-bold text-primary dark:bg-primary/30">Pay Now</button></div>
+</div>
+</div>
+<!-- Section Header: This Week -->
+<h3 class="px-4 pb-2 pt-6 text-lg font-bold leading-tight tracking-[-0.015em] text-text-primary-light dark:text-text-primary-dark">This Week</h3>
+<div class="flex flex-col gap-2 px-4">
+<!-- Spending Summary Notification Card -->
+<div class="flex items-center gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4">
+<div class="flex items-center gap-4 flex-1">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary dark:bg-primary/30">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold leading-normal line-clamp-1">Spending Summary</p>
+<p class="text-sm font-normal leading-normal line-clamp-2 text-text-secondary-light dark:text-text-secondary-dark">Spending on 'Subscriptions' was higher.</p>
+</div>
+</div>
+<div class="shrink-0 text-sm font-normal text-text-secondary-light dark:text-text-secondary-dark">Yesterday</div>
+</div>
+<!-- Payment Confirmation Card -->
+<div class="flex items-center gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4">
+<div class="flex items-center gap-4 flex-1">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-soft-green dark:bg-soft-green/20 text-text-green dark:text-green-300">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold leading-normal line-clamp-1">Spotify Payment Sent</p>
+<p class="text-sm font-normal leading-normal line-clamp-2 text-text-secondary-light dark:text-text-secondary-dark">$9.99 paid successfully</p>
+</div>
+</div>
+<div class="shrink-0 text-sm font-normal text-text-secondary-light dark:text-text-secondary-dark">2d ago</div>
+</div>
+</div>
+<!-- Section Header: Last Month -->
+<h3 class="px-4 pb-2 pt-6 text-lg font-bold leading-tight tracking-[-0.015em] text-text-primary-light dark:text-text-primary-dark">Last Month</h3>
+<div class="flex flex-col gap-2 px-4 pb-8">
+<!-- Custom Reminder Notification Card -->
+<div class="flex items-center gap-4 rounded-xl bg-surface-light dark:bg-surface-dark p-4">
+<div class="flex items-center gap-4 flex-1">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary dark:bg-primary/30">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold leading-normal line-clamp-1">Call Utility Provider</p>
+<p class="text-sm font-normal leading-normal line-clamp-2 text-text-secondary-light dark:text-text-secondary-dark">Custom Reminder</p>
+</div>
+</div>
+<div class="shrink-0 text-sm font-normal text-text-secondary-light dark:text-text-secondary-dark">May 21</div>
+</div>
+</div>
+<!-- Empty State -->
+<!-- Uncomment the block below to see the empty state -->
+<!--
+            <div class="flex flex-1 flex-col items-center justify-center text-center p-8 mt-16">
+                <div class="flex h-24 w-24 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined !text-5xl">notifications_active</span>
+                </div>
+                <h3 class="mt-6 text-xl font-bold text-text-primary-light dark:text-text-primary-dark">All Caught Up!</h3>
+                <p class="mt-2 max-w-xs text-base text-text-secondary-light dark:text-text-secondary-dark">You have no new notifications right now. We'll let you know when something new comes up.</p>
+            </div>
+            -->
+</div>
+</div>
+</body></html>

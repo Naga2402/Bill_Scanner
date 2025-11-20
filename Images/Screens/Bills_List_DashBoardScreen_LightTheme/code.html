@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bill Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#359EFF", "background-light": "#F7F9FC", "background-dark": "#0F172A", "card-light": "#FFFFFF", "card-dark": "#1E293B", "text-primary-light": "#0F172A", "text-primary-dark": "#FFFFFF", "text-secondary-light": "#64748B", "text-secondary-dark": "#94A3B8"}, fontFamily: {display: "Manrope"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative min-h-screen w-full mx-auto max-w-md">
+<header class="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<h1 class="text-2xl font-bold text-text-primary-light dark:text-text-primary-dark">All Bills</h1>
+<button class="flex items-center justify-center size-10 rounded-full text-text-primary-light dark:text-text-primary-dark">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<main class="flex flex-col gap-4 p-4 pb-24">
+<div class="flex items-center gap-2">
+<div class="relative flex-grow">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex bg-card-light dark:bg-card-dark items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-card-light dark:bg-card-dark h-full placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search bills..." value=""/>
+</div>
+</label>
+</div>
+<button class="flex items-center justify-center size-12 shrink-0 rounded-xl bg-card-light dark:bg-card-dark text-primary shadow-sm">
+<span class="material-symbols-outlined text-2xl">tune</span>
+</button>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 -mt-1">
+<button class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-primary text-white">All</button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-card-light dark:bg-card-dark text-text-primary-light dark:text-text-primary-dark">Groceries</button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-card-light dark:bg-card-dark text-text-primary-light dark:text-text-primary-dark">Utilities</button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-card-light dark:bg-card-dark text-text-primary-light dark:text-text-primary-dark">Food</button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-card-light dark:bg-card-dark text-text-primary-light dark:text-text-primary-dark">Shopping</button>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm">
+<div class="flex items-center justify-center rounded-full bg-blue-500/10 text-blue-500 dark:bg-blue-500/20 shrink-0 size-12">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div class="flex flex-col justify-center flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-semibold leading-normal line-clamp-1">Amazon</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal">$128.70</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Oct 28, 2023</p>
+<div class="flex h-6 shrink-0 items-center justify-center gap-x-2 rounded-md bg-blue-500/10 dark:bg-blue-500/20 px-2.5">
+<p class="text-blue-500 text-xs font-medium leading-normal">Shopping</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm">
+<div class="flex items-center justify-center rounded-full bg-green-500/10 text-green-500 dark:bg-green-500/20 shrink-0 size-12">
+<span class="material-symbols-outlined">coffee</span>
+</div>
+<div class="flex flex-col justify-center flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-semibold leading-normal line-clamp-1">Starbucks</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal">$12.50</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Oct 26, 2023</p>
+<div class="flex h-6 shrink-0 items-center justify-center gap-x-2 rounded-md bg-green-500/10 dark:bg-green-500/20 px-2.5">
+<p class="text-green-500 text-xs font-medium leading-normal">Food</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm">
+<div class="flex items-center justify-center rounded-full bg-red-500/10 text-red-500 dark:bg-red-500/20 shrink-0 size-12">
+<span class="material-symbols-outlined">local_gas_station</span>
+</div>
+<div class="flex flex-col justify-center flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-semibold leading-normal line-clamp-1">Shell Gas</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal">$45.30</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Oct 25, 2023</p>
+<div class="flex h-6 shrink-0 items-center justify-center gap-x-2 rounded-md bg-red-500/10 dark:bg-red-500/20 px-2.5">
+<p class="text-red-500 text-xs font-medium leading-normal">Transport</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm">
+<div class="flex items-center justify-center rounded-full bg-purple-500/10 text-purple-500 dark:bg-purple-500/20 shrink-0 size-12">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex flex-col justify-center flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-semibold leading-normal line-clamp-1">AT&amp;T Internet</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal">$85.00</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Oct 24, 2023</p>
+<div class="flex h-6 shrink-0 items-center justify-center gap-x-2 rounded-md bg-purple-500/10 dark:bg-purple-500/20 px-2.5">
+<p class="text-purple-500 text-xs font-medium leading-normal">Utilities</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm">
+<div class="flex items-center justify-center rounded-full bg-orange-500/10 text-orange-500 dark:bg-orange-500/20 shrink-0 size-12">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div class="flex flex-col justify-center flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-semibold leading-normal line-clamp-1">The Cheesecake Factory</p>
+<p class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal">$92.15</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal line-clamp-2">Oct 22, 2023</p>
+<div class="flex h-6 shrink-0 items-center justify-center gap-x-2 rounded-md bg-green-500/10 dark:bg-green-500/20 px-2.5">
+<p class="text-green-500 text-xs font-medium leading-normal">Food</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-6 right-6 z-20">
+<button class="flex items-center justify-center size-16 bg-primary rounded-2xl text-white shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined text-4xl">photo_camera</span>
+</button>
+</div>
+</div>
+
+</body></html>
