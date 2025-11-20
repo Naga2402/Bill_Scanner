@@ -1,4 +1,4 @@
-# 📱 Bill Scanner - Complete Project
+# 📱 Bill Scanner - PRAMAAN
 
 ## 🎯 Overview
 
